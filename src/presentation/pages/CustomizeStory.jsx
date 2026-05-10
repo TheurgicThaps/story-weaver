@@ -129,19 +129,13 @@ const PREVIEW_SCENES = {
 
 const CHARACTER_IMAGES = {
   girl: [
-    "https://images.unsplash.com/photo-1488716820095-cbe80883c496?w=400&q=80",
-    "https://images.unsplash.com/photo-1518533596014-30f3a7e9d4e0?w=400&q=80",
-    "https://images.unsplash.com/photo-1562788369-1b7a8a9bddeb?w=400&q=80",
+    "public/images/zara.png",
   ],
   boy: [
-    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
-    "https://images.unsplash.com/photo-1551069613-1904dbdcda11?w=400&q=80",
-    "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=400&q=80",
+      "public/images/leo.png",
   ],
   neutral: [
-    "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=400&q=80",
-    "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80",
-    "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?w=400&q=80",
+    "public/images/owl.png",
   ],
 };
 

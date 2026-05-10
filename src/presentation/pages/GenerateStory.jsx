@@ -9,9 +9,9 @@ const STORY_PAGES = [
     paragraph:
       "In a land where the sunrise painted the sky in shades of rose and amber, young Zara discovered something extraordinary beneath the oldest oak tree in the meadow. A tiny door, no bigger than her palm, shimmered with golden light — pulsing like a heartbeat, waiting just for her.",
     illustrationPrompt:
-      "A young girl with curly hair kneeling beside a glowing magical door at the base of a giant oak tree, sunrise light filtering through leaves, watercolour style, soft warm tones",
+      "Zara (round face, curly hair, medium skin tone, almond eyes) kneeling beside a glowing magical door under an ancient oak tree at sunrise. Warm fantasy storybook illustration style, soft watercolor lighting, magical golden glow.",
     illustrationImg:
-      "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=800&q=85",
+      "public/images/page1.png",
     audioDuration: "0:42",
   },
   {
@@ -20,9 +20,9 @@ const STORY_PAGES = [
     paragraph:
       'From behind the tiny door crept Leo, a lion cub no bigger than a house cat, wearing a crown of wildflowers. "I have been waiting for the one who could see me," he said in a voice like distant thunder wrapped in velvet. "The kingdom needs a hero today."',
     illustrationPrompt:
-      "A tiny lion cub wearing a flower crown standing in front of a glowing door, speaking to a child, magical forest setting, chibi-inspired, warm gold lighting",
+      "Leo (small magical lion cub with flower crown, expressive gentle face) standing beside Zara in enchanted forest clearing. Soft golden fantasy light, whimsical storybook illustration, consistent character style.",
     illustrationImg:
-      "https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=800&q=85",
+      "public/images/page2.png",
     audioDuration: "0:38",
   },
   {
@@ -31,9 +31,9 @@ const STORY_PAGES = [
     paragraph:
       "Nova the wise owl descended from the clouds, carrying an ancient scroll in her talons. The parchment unrolled to reveal a map of the hidden kingdom — mountains made of moonlight, rivers of crystallised starlight, and at the very centre, a palace built entirely from stories.",
     illustrationPrompt:
-      "A majestic owl carrying a glowing ancient map scroll, descending from golden clouds above a fantastical kingdom visible below, painterly illustration style",
+      "Nova (wise mystical owl mentor, glowing soft aura) flying down with glowing scroll map above fantasy kingdom landscape. Ethereal watercolor storybook style, soft blues and golds, magical realism.",
     illustrationImg:
-      "https://images.unsplash.com/photo-1557401622-cfc0aa5d14d9?w=800&q=85",
+      "public/images/page3.png",
     audioDuration: "0:45",
   },
   {
@@ -42,9 +42,9 @@ const STORY_PAGES = [
     paragraph:
       "Crossing the Bridge of Whispers was not as frightening as it sounded. Each plank whispered a secret of the world — why clouds cry, how stars were born, and the reason fireflies carry their own lanterns. By the time Zara reached the other side, she felt a hundred years wiser.",
     illustrationPrompt:
-      "A magical bridge made of moonbeams over a glittering river, a child and small lion crossing it, fireflies glowing around them, dreamy watercolour",
+      "Zara and Leo crossing a glowing moonbeam bridge over sparkling river of light, surrounded by floating fireflies. Dreamlike fantasy watercolor illustration, consistent characters, warm magical atmosphere.",
     illustrationImg:
-      "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&q=85",
+      "public/images/page4.png",
     audioDuration: "0:51",
   },
   {
@@ -53,9 +53,9 @@ const STORY_PAGES = [
     paragraph:
       'The palace of stories rose before them, its towers made of thousands of glowing books, its windows shaped like open pages. Inside, every story ever told lived on — waiting for new readers to breathe life into them again. Zara placed her hand on the door. It was warm, like a hug. "Welcome home," it said.',
     illustrationPrompt:
-      "A magnificent palace made entirely of glowing storybooks, its towers reaching the clouds, a small girl and lion standing before the grand entrance, golden magic swirling, epic painterly style",
+      "Zara, Leo, and Nova standing before a glowing castle made of floating books and golden light. Epic fantasy storybook style, highly detailed magical architecture, warm emotional tone.",
     illustrationImg:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=85",
+      "public/images/page5.png",
     audioDuration: "0:58",
   },
 ];
