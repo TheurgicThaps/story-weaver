@@ -100,10 +100,31 @@ const FEATURES = {
 };
 
 const ART_STYLES = [
-  { id:"watercolor",label:"Watercolour",desc:"Soft & dreamy",   img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" },
-  { id:"comic",     label:"Comic Book", desc:"Bold & punchy",   img:"https://images.unsplash.com/photo-1608889476518-738c9b1dcb40?w=400&q=80" },
-  { id:"chibi",     label:"Chibi",      desc:"Cute & playful",  img:"https://images.unsplash.com/photo-1578632767115-351597cf2477?w=400&q=80" },
-  { id:"painterly", label:"Painterly",  desc:"Rich & detailed", img:"https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=400&q=80" },
+{ 
+    id: "watercolor", 
+    label: "Watercolour", 
+    desc: "Soft & dreamy", 
+    img: "https://images.stockcake.com/public/3/7/a/37a7e2fe-1861-4d87-b0f1-bb5ca367af77_large/magical-tree-wonder-stockcake.jpg" 
+  },
+ 
+{ 
+  id: "comic", 
+  label: "Comic Book", 
+  desc: "Bold & punchy", 
+  img: "https://openclipart.org/image/800px/319329" 
+},
+  { 
+    id: "chibi", 
+    label: "Chibi", 
+    desc: "Cute & playful", 
+    img: "https://cloud.firebrandtech.com/api/v2/image/111/9781633228627/CoverArtHigh/XL" 
+  },
+  { 
+    id: "painterly", 
+    label: "Painterly", 
+    desc: "Rich & detailed", 
+    img: "https://a.storyblok.com/f/165154/1280x720/6eeea5ad9c/01_top-13-childrens-book-illustration-styles-header.jpg" 
+  },
 ];
 const PALETTES = [
   { id:"royal",  label:"Royal Magic",      colors:["#7C3AED","#FBBF24","#EC4899"] },
@@ -220,7 +241,7 @@ const GlobalStyle = () => (
       padding: 20px 24px;
     }
     .char-editor-right {
-      width: 500px;
+      width: 320px;
       flex-shrink: 0;
       border-left: 1px solid rgba(168,85,247,.15);
       overflow-y: auto;
@@ -777,8 +798,7 @@ function CharacterEditor({ charData, setCharData, onNext, generatedImages, onGen
 // ─── STEP 1 — STYLE & MOOD ───────────────────────────────────────────────────
 
 function StyleMoodStep({ storyData, setStoryData, onNext }) {
-
-const { artStyle, palette, ageGroup, mood } = storyData;
+  const { artStyle, palette, mood } = storyData;
   const set = (key,val) => setStoryData(prev=>({...prev,[key]:val}));
 
   const activePalette = PALETTES.find(p=>p.id===palette)||PALETTES[0];
@@ -805,17 +825,24 @@ const { artStyle, palette, ageGroup, mood } = storyData;
                   <div key={s.id} onClick={()=>set("artStyle",s.id)} className="card-sel" style={{
                     borderRadius:12,overflow:"hidden",
                     border:`${sel?2:1.5}px solid ${sel?"#FBBF24":"rgba(255,255,255,.1)"}`,
-                    background:"rgba(255,255,255,.04)",
+                    background:"#0f0620",
                     boxShadow:sel?"0 0 16px rgba(251,191,36,.2)":"none",
+                    position:"relative",
                   }}>
-                    <div style={{position:"relative",height:72,overflow:"hidden"}}>
-                      <img src={s.img} alt={s.label} style={{width:"100%",height:"100%",objectFit:"cover",filter:sel?"brightness(1)":"brightness(.6) saturate(.75)",transition:"filter .2s"}} onError={e=>{e.target.style.display="none";}}/>
-                      {sel&&<div style={{position:"absolute",top:5,right:5,width:18,height:18,borderRadius:"50%",background:"#FBBF24",display:"flex",alignItems:"center",justifyContent:"center",fontSize:10,fontWeight:900,color:"#1a0533"}}>✓</div>}
-                      <div style={{position:"absolute",inset:0,background:"linear-gradient(to top,rgba(15,6,32,.8) 0%,transparent 55%)"}}/>
-                    </div>
-                    <div style={{padding:"7px 10px 9px"}}>
-                      <div style={{fontSize:11,fontWeight:800,color:sel?"#FBBF24":"#f3e8ff"}}>{s.label}</div>
-                      <div style={{fontSize:9,color:"#6b7280",marginTop:1}}>{s.desc}</div>
+                    <div style={{position:"relative",width:"100%",paddingTop:"75%",overflow:"hidden"}}>
+                      <img src={s.img} alt={s.label} style={{
+                        position:"absolute",top:0,left:0,
+                        width:"100%",height:"100%",
+                        objectFit:"cover",objectPosition:"center center",
+                        filter:sel?"brightness(1)":"brightness(.55) saturate(.75)",
+                        transition:"filter .2s",display:"block",
+                      }} onError={e=>{e.target.style.display="none";}}/>
+                      <div style={{position:"absolute",inset:0,background:"linear-gradient(to top,rgba(10,4,22,.92) 0%,rgba(10,4,22,.2) 55%,transparent 100%)"}}/>
+                      {sel&&<div style={{position:"absolute",top:7,right:7,width:18,height:18,borderRadius:"50%",background:"#FBBF24",display:"flex",alignItems:"center",justifyContent:"center",fontSize:10,fontWeight:900,color:"#1a0533",zIndex:2}}>✓</div>}
+                      <div style={{position:"absolute",bottom:0,left:0,right:0,padding:"8px 10px",zIndex:2}}>
+                        <div style={{fontSize:11,fontWeight:800,color:sel?"#FBBF24":"#f3e8ff"}}>{s.label}</div>
+                        <div style={{fontSize:9,color:"#9ca3af",marginTop:1}}>{s.desc}</div>
+                      </div>
                     </div>
                   </div>
                 );
@@ -847,22 +874,6 @@ const { artStyle, palette, ageGroup, mood } = storyData;
             </div>
           </SectionCard>
 
-          <SectionCard title="Age Group">
-            <div style={{display:"flex",gap:8}}>
-              {AGE_GROUPS.map(ag=>{
-                const sel=ageGroup===ag;
-                return (
-                  <div key={ag} onClick={()=>set("ageGroup",ag)} className="chip" style={{
-                    flex:1,padding:"11px 8px",borderRadius:10,textAlign:"center",
-                    fontSize:12,fontWeight:800,
-                    border:`${sel?2:1.5}px solid ${sel?"#22D3EE":"rgba(255,255,255,.1)"}`,
-                    background:sel?"rgba(34,211,238,.09)":"rgba(255,255,255,.04)",
-                    color:sel?"#22D3EE":"#9ca3af",
-                  }}>{ag}</div>
-                );
-              })}
-            </div>
-          </SectionCard>
           <SectionCard title="Story Mood">
             <div style={{display:"flex",flexWrap:"wrap",gap:7}}>
               {MOODS.map(m=>{
@@ -952,17 +963,24 @@ function CustomizeStory({ charData, storyData, setStoryData, onNext, generatedIm
                   <div key={s.id} onClick={()=>set("artStyle",s.id)} className="card-sel" style={{
                     borderRadius:12,overflow:"hidden",
                     border:`${sel?2:1.5}px solid ${sel?"#FBBF24":"rgba(255,255,255,.1)"}`,
-                    background:"rgba(255,255,255,.04)",
+                    background:"#0f0620",
                     boxShadow:sel?"0 0 16px rgba(251,191,36,.2)":"none",
+                    position:"relative",
                   }}>
-                    <div style={{position:"relative",height:72,overflow:"hidden"}}>
-                      <img src={s.img} alt={s.label} style={{width:"100%",height:"100%",objectFit:"cover",filter:sel?"brightness(1)":"brightness(.6) saturate(.75)",transition:"filter .2s"}} onError={e=>{e.target.style.display="none";}}/>
-                      {sel&&<div style={{position:"absolute",top:5,right:5,width:18,height:18,borderRadius:"50%",background:"#FBBF24",display:"flex",alignItems:"center",justifyContent:"center",fontSize:10,fontWeight:900,color:"#1a0533"}}>✓</div>}
-                      <div style={{position:"absolute",inset:0,background:"linear-gradient(to top,rgba(15,6,32,.8) 0%,transparent 55%)"}}/>
-                    </div>
-                    <div style={{padding:"7px 10px 9px"}}>
-                      <div style={{fontSize:11,fontWeight:800,color:sel?"#FBBF24":"#f3e8ff"}}>{s.label}</div>
-                      <div style={{fontSize:9,color:"#6b7280",marginTop:1}}>{s.desc}</div>
+                    <div style={{position:"relative",width:"100%",paddingTop:"75%",overflow:"hidden"}}>
+                      <img src={s.img} alt={s.label} style={{
+                        position:"absolute",top:0,left:0,
+                        width:"100%",height:"100%",
+                        objectFit:"cover",objectPosition:"center center",
+                        filter:sel?"brightness(1)":"brightness(.55) saturate(.75)",
+                        transition:"filter .2s",display:"block",
+                      }} onError={e=>{e.target.style.display="none";}}/>
+                      <div style={{position:"absolute",inset:0,background:"linear-gradient(to top,rgba(10,4,22,.92) 0%,rgba(10,4,22,.2) 55%,transparent 100%)"}}/>
+                      {sel&&<div style={{position:"absolute",top:7,right:7,width:18,height:18,borderRadius:"50%",background:"#FBBF24",display:"flex",alignItems:"center",justifyContent:"center",fontSize:10,fontWeight:900,color:"#1a0533",zIndex:2}}>✓</div>}
+                      <div style={{position:"absolute",bottom:0,left:0,right:0,padding:"8px 10px",zIndex:2}}>
+                        <div style={{fontSize:11,fontWeight:800,color:sel?"#FBBF24":"#f3e8ff"}}>{s.label}</div>
+                        <div style={{fontSize:9,color:"#9ca3af",marginTop:1}}>{s.desc}</div>
+                      </div>
                     </div>
                   </div>
                 );
@@ -1312,7 +1330,7 @@ function PreviewGenerate({ charData, storyData, onBack, generatedImages, onGener
   );
 }
 
-// ─── ROOT ─────────────────────────────────────────────────────────────────────
+//─── ROOT ─────────────────────────────────────────────────────────────────────
 
 export default function App() {
   const [step, setStep] = useState(1);
