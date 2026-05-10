@@ -69,7 +69,7 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
       padding: 20px 24px;
     }
     .char-editor-right {
-      width: 320px;
+      width: 620px;
       flex-shrink: 0;
       border-left: 1px solid rgba(168,85,247,.15);
       overflow-y: auto;
